@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/domanakaFragment">
+
+    <fragment
+        android:id="@+id/capelFragment"
+        android:name="com.bivizul.aglossaryforsportsbettors.ui.capel.CapelFragment"
+        android:label="fragment_capel"
+        tools:layout="@layout/fragment_capel" />
+    <fragment
+        android:id="@+id/glossaryFragment"
+        android:name="com.bivizul.aglossaryforsportsbettors.ui.glossary.GlossaryFragment"
+        android:label="fragment_glossary"
+        tools:layout="@layout/fragment_glossary" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.bivizul.aglossaryforsportsbettors.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_glossaryFragment"
+            app:destination="@id/glossaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/domanakaFragment"
+        android:name="com.bivizul.aglossaryforsportsbettors.ui.domanaka.DomanakaFragment"
+        android:label="fragment_domanaka"
+        tools:layout="@layout/fragment_domanaka" >
+        <action
+            android:id="@+id/action_domanakaFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_domanakaFragment_to_capelFragment"
+            app:destination="@id/capelFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
