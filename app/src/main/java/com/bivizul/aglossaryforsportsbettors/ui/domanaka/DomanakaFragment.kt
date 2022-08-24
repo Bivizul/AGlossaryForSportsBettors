@@ -2,25 +2,22 @@ package com.bivizul.aglossaryforsportsbettors.ui.domanaka
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bivizul.aglossaryforsportsbettors.R
 import com.bivizul.aglossaryforsportsbettors.appComponent
 import com.bivizul.aglossaryforsportsbettors.data.Capiconst.APP_PREFERENCES
+import com.bivizul.aglossaryforsportsbettors.data.Capiconst.KEY_CAPEL
 import com.bivizul.aglossaryforsportsbettors.data.Content
 import com.bivizul.aglossaryforsportsbettors.data.model.SetCapel
 import com.bivizul.aglossaryforsportsbettors.databinding.FragmentDomanakaBinding
-import com.bivizul.aglossaryforsportsbettors.util.checkCheck
 import com.bivizul.aglossaryforsportsbettors.util.getCapid
 import com.bivizul.aglossaryforsportsbettors.util.getCaploc
 import com.bivizul.aglossaryforsportsbettors.util.getDialog
@@ -28,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 class DomanakaFragment : Fragment(R.layout.fragment_domanaka) {
 
@@ -47,11 +45,6 @@ class DomanakaFragment : Fragment(R.layout.fragment_domanaka) {
         context.appComponent.inject(this)
     }
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        requireContext().appComponent.inject(this)
-//    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,10 +52,11 @@ class DomanakaFragment : Fragment(R.layout.fragment_domanaka) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.getCapel.collect { content ->
                     when (content) {
-                        is Content.Loading -> {binding.progressBar.visibility = View.VISIBLE}
+                        is Content.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
                         is Content.Success -> {
                             content.data?.let { getCapel ->
-                                Log.e("qwer", "DomanakaFragment getCapel : $getCapel")
                                 if (getCapel.getCapel == "no") {
                                     delay(1000)
                                     binding.progressBar.visibility = View.GONE
@@ -70,13 +64,16 @@ class DomanakaFragment : Fragment(R.layout.fragment_domanaka) {
                                 } else {
                                     delay(1000)
                                     binding.progressBar.visibility = View.GONE
-                                    findNavController().navigate(R.id.action_domanakaFragment_to_mainFragment)
+                                    findNavController().navigate(
+                                        R.id.action_domanakaFragment_to_capelFragment,
+                                        bundleOf(KEY_CAPEL to getCapel.getCapel)
+                                    )
                                 }
                             }
                         }
                         is Content.Error -> {
                             binding.progressBar.visibility = View.GONE
-                            getDialog(requireContext(),requireActivity())
+                            getDialog(requireContext(), requireActivity())
                         }
                     }
                 }

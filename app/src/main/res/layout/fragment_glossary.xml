@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.glossary.GlossaryFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_glossary"
+    <com.l4digital.fastscroll.FastScrollRecyclerView
+        android:id="@+id/fast_scroller_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_glossary"
         android:orientation="vertical"
+        app:bubbleColor="?attr/colorPrimary"
+        app:bubbleTextColor="#000"
+        app:handleColor="#999999"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <ProgressBar
         android:id="@+id/progress_bar_glossary"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="?attr/colorPrimary" />
 
 </FrameLayout>

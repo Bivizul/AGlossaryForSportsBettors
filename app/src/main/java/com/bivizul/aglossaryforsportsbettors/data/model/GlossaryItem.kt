@@ -7,4 +7,5 @@ data class GlossaryItem(
     val id: Int,
     val name: String,
     val description: String,
+    var check: Boolean = true,
 )

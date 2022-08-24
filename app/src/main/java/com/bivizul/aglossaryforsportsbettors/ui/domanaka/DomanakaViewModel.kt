@@ -23,7 +23,6 @@ class DomanakaViewModel @Inject constructor(
             capelRepository.getCapel(setCapel)
         }
     }
-
 }
 
 class DomanakaViewModelFactory @AssistedInject constructor(

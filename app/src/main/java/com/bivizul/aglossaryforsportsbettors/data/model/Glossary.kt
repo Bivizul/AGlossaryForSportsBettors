@@ -4,5 +4,5 @@ import androidx.annotation.Keep
 
 @Keep
 data class Glossary(
-    val glossary: List<GlossaryItem>
+    val glossary: List<GlossaryItem>,
 )

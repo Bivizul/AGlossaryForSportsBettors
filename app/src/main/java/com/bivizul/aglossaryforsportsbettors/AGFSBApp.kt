@@ -10,7 +10,6 @@ import com.bivizul.aglossaryforsportsbettors.di.DaggerAppComponent
 class AGFSBApp : Application() {
 
     lateinit var appComponent: AppComponent
-//    val appComponent : AppComponent by lazy {}
 
     override fun onCreate() {
         super.onCreate()

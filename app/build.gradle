@@ -53,6 +53,9 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.5.2"
     implementation "androidx.activity:activity-ktx:1.5.1"
 
+    // Fastscroll
+    implementation "io.github.l4digital:fastscroll:2.1.0"
+
     // Binding delegate
     implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$bindingVersion"
 

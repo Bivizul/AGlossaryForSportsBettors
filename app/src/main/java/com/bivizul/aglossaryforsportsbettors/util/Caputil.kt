@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.bivizul.aglossaryforsportsbettors.util
 
 import android.app.Activity
