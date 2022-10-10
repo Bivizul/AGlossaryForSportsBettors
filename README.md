@@ -21,4 +21,4 @@
 
 ## 📹 &nbsp;Video
 
-https://github.com/Bivizul/AGlossaryForSportsBettors/issues/1#issue-1403240432
+[1.webm](https://user-images.githubusercontent.com/69785788/194885187-7ea5f7a6-21fa-4855-844c-764031b988ce.webm)
