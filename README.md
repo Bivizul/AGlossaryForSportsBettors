@@ -2,7 +2,7 @@
 
 ## 📜 &nbsp;Description app:
 
-# Application with a pulsing button, inside a collapsible list with a search by the first letter.
+Application with a pulsing button, inside a collapsible list with a search by the first letter.
 
 ## 🛠 &nbsp;Tech Stack
 
